@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #000022, #000000);
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  text-align: center;
+
+  overflow-y: auto; /* 🔥 permite scroll */
+}
+
+/* 🔥 OVERLAY */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  color: gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  text-align: center;
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* 🌌 Fondo */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+  z-index: 0;
+}
+
+/* 💛 MENSAJE */
+.mensaje {
+  position: relative;
+  margin-top: 80px;
+  padding: 20px;
+  font-size: 2em;
+  color: gold;
+  text-shadow: 0 0 20px #ff0;
+  z-index: 2;
+
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+
+  opacity: 0;
+  animation: aparecerTexto 2s ease forwards;
+}
+
+@keyframes aparecerTexto {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🎵 AUDIO */
+audio {
+  margin-top: 20px;
+  z-index: 3;
+  position: relative;
+}
+
+/* 🌼 PÉTALOS */
+.petal {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: yellow;
+  border-radius: 50%;
+  animation: fall linear infinite;
+  z-index: 1;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* 📸 COLLAGE */
+.collage {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  z-index: 2;
+
+  opacity: 0;
+  animation: aparecer 3s ease-in-out forwards;
+  animation-delay: 2s;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.collage img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 5px solid gold;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #ff0;
+
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.collage img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #fff;
+}
+
+/* 💖 CORAZÓN */
+.corazon {
+  margin: 50px 0;
+  font-size: 5em;
+  color: red;
+  text-shadow: 0 0 30px #ff0044;
+
+  animation: latido 1s infinite;
+}
+
+@keyframes latido {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 600px) {
+  .mensaje {
+    font-size: 1.4em;
+  }
+
+  .collage img {
+    width: 100px;
+    height: 100px;
+  }
+}
